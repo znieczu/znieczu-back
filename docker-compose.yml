@@ -1,11 +1,60 @@
 version: "3"
 
 services:
+  db:
+    image: postgres
+
   znieczu-back:
+    container_name: znieczu-back
     build:
       context: .
     ports:
       - "8000:8000"
     volumes:
       - .:/znieczu-back
-    command: python znieczu/manage.py runserver 0.0.0.0:8000
+    command: bash start.sh
+    depends_on:
+      - db
+#      - znieczu-front
+    networks:
+      - nginx_network
+
+#  znieczu-front:
+#    container_name: znieczu-front
+#    build:
+#      context: ./znieczu-front
+#
+#    volumes:
+#      - ./znieczu-front:/znieczu-front
+
+  nginx:
+    image: nginx:1.13
+    build:
+      context: .
+      dockerfile: ./config/nginx/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+#      - znieczu-front
+      - znieczu-back
+      - db
+    networks:
+      - nginx_network
+
+#  celery:
+#    build:
+#      context: .
+#      dockerfile: backend/Dockerfile
+#    command: celery -A backend.znieczu worker -l info
+#    volumes:
+#      - .:/backend
+#    depends_on:
+#      - db
+#    networks:
+#      - nginx_network
+
+networks:  # <-- and here
+  nginx_network:
+    driver: bridge
