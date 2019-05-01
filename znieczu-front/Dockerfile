@@ -12,7 +12,7 @@ RUN npm cache verify
 
 RUN npm i npm@latest -g
 RUN npm install
-COPY . ./znieczu-front
+COPY . .
 
 
 RUN ls
