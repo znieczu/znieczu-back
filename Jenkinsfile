@@ -6,7 +6,10 @@ pipeline {
             steps {
                 echo 'Building..'
 		sh 'cd znieczu-front'
-		sh 'npm run build'
+		withNPM(npmrcConfig:'MyNpmrcConfig') {
+            		echo "Performing npm build..."
+            		sh 'npm run build'
+        	}
             }
         }
         stage('Test') {

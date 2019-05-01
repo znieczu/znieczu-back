@@ -19,13 +19,13 @@ services:
     networks:
       - nginx_network
 
-  znieczu-front:
-    container_name: znieczu-front
-    build:
-      context: ./znieczu-front
-      dockerfile: Dockerfile
-    volumes:
-      - ./znieczu-front:/znieczu-front
+#  znieczu-front:
+#    container_name: znieczu-front
+#    build:
+#      context: ./znieczu-front
+#      dockerfile: Dockerfile
+#    volumes:
+#      - ./znieczu-front:/znieczu-front
 
   nginx:
     image: nginx:1.13
