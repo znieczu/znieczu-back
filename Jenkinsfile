@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+		sh 'cd znieczu-front && npm install && nom run build'
             }
         }
         stage('Test') {
@@ -17,8 +18,8 @@ pipeline {
                 echo 'Deploying....'
 		sh 'docker container stop znieczu-back'
 		sh 'docker container stop znieczuback_nginx_1'
-		sh 'docker container up znieczu-back'
-		sh 'docker container up znieczuback_nginx_1'
+		sh 'docker container start znieczu-back'
+		sh 'docker container start znieczuback_nginx_1'
 
             }
         }
