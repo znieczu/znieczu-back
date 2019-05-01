@@ -25,7 +25,7 @@ SECRET_KEY = 'f+@((iw45@jh31o4@s&gjrql&*j=!xifzn5s_zd0+ja$s*ajg-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # Our custom apps
     'apps.company_walfare',
+    
+    # Our custom apis
+    'api.api_company_walfare',
 ]
 
 MIDDLEWARE = [
