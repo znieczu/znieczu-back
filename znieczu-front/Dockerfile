@@ -14,7 +14,3 @@ RUN npm run build
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY ./znieczu-front ./znieczu-front
 
-# expose port 8080 to the host
-EXPOSE 80
-
-CMD ["npm", "run", "start"]
