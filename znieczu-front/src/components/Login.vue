@@ -32,7 +32,7 @@ export default {
       console.log(this.username)
       var app = this
       axios
-        .post('http://127.0.0.1:8000/api/auth/login/', {
+        .post('http://znieczu.it:8000/api/auth/login/', {
           username: this.username,
           password: this.password
         }
