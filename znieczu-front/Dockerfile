@@ -11,6 +11,6 @@ RUN npm cache verify
 # install project dependencies
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY . ./znieczu-front
+COPY . .
 
 CMD [ "npm", "run", "build"]
