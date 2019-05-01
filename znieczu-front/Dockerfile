@@ -12,6 +12,7 @@ RUN npm cache verify
 
 RUN npm i npm@latest -g
 RUN npm install
+RUN ls
 RUN npm run build
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . ./znieczu-front
