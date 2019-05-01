@@ -15,7 +15,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		sh 'docker-compose -f docker-compose.yml up'
+		sh 'docker container stop znieczu-back'
+		sh 'docker container stop znieczuback_nginx_1'
+		sh 'docker container up znieczu-back'
+		sh 'docker container up znieczuback_nginx_1'
+
             }
         }
     }
