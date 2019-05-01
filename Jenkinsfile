@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+		sh 'cd znieczu-front'
+		sh 'npm run build'
             }
         }
         stage('Test') {
@@ -15,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-		sh 'docker-compose -f docker-compose.yml up --build'
+		sh 'docker-compose -f docker-compose.yml up'
 		// sh 'docker container stop znieczu-back'
 		// sh 'docker container stop znieczuback_nginx_1'
 	        // sh 'docker container start znieczu-back'
