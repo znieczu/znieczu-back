@@ -24,7 +24,6 @@ services:
     build:
       context: ./znieczu-front
       dockerfile: Dockerfile
-
     volumes:
       - ./znieczu-front:/znieczu-front
 

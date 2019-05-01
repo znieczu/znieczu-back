@@ -7,4 +7,4 @@ npm cache verify
 npm install
 
 # run the development server
-npm run serve
+npm run build
