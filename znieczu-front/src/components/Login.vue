@@ -29,7 +29,6 @@ export default {
   },
   methods: {
     handleLogin () {
-      console.log(this.username)
       var app = this
       axios
         .post('http://znieczu.it:8000/api/auth/login/', {
