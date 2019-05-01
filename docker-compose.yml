@@ -15,7 +15,7 @@ services:
     command: bash start.sh
     depends_on:
       - db
-      - znieczu-front
+#      - znieczu-front
     networks:
       - nginx_network
 
@@ -37,7 +37,7 @@ services:
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-      - znieczu-front
+#      - znieczu-front
       - znieczu-back
       - db
     networks:
