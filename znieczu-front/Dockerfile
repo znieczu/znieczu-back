@@ -9,8 +9,7 @@ COPY ./package.json ./
 # https://docs.npmjs.com/cli/cache
 RUN npm cache verify
 # install project dependencies
-
+RUN npm install
+RUN npm run build
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
-
-CMD [ "npm", "run", "build"]
