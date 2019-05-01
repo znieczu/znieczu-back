@@ -1,19 +1,14 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:7.4'
-        }
-    }
-
+    agent any
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'cd znieczu-front'
-		withNPM(npmrcConfig:'2c0ab2fd-f5b0-4f81-86dd-e0d0c8bc5e7f') {
-            		echo "Performing npm build..."
-            		sh 'npm run build'
-        	}
+		// sh 'cd znieczu-front'
+		// withNPM(npmrcConfig:'2c0ab2fd-f5b0-4f81-86dd-e0d0c8bc5e7f') {
+            	//	echo "Performing npm build..."
+            	//	sh 'npm run build'
+        	// }
             }
         }
         stage('Test') {
