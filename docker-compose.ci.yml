@@ -5,12 +5,10 @@ services:
         ports:
             - '8081:8080'
         image: localhost:5000/jenkins-master
-        restart: always
         volumes:
           - jenkins_home:/var/jenkins_home
     jenkins-slave:
         container_name: jenkins-slave
-        restart: always
         environment:
             - 'JENKINS_URL=http://jenkins:8080'
         image: localhost:5000/jenkins-slave
