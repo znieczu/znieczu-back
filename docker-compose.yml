@@ -20,7 +20,7 @@ services:
       - nginx_network
 
 #  znieczu-front:
-#    container_name: znieczu-front (test)
+#    container_name: znieczu-front (test heyheyhey)
 #    build:
 #      context: ./znieczu-front
 #
