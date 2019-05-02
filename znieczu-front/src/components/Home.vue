@@ -34,7 +34,7 @@
                 <div class="logInUp">
                     <button class="signUpButton">Sign Up</button>
                     <h4>Or</h4>
-                    <button class="loginButton">Login</button>
+                    <router-link to="/login" tag="button" class="loginButton">Login</router-link>
                 </div>
             </div>
         </div>

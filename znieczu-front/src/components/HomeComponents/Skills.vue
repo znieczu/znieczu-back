@@ -1,16 +1,16 @@
 <template>
     <div class="skills">
         <div class="firstIcon">
-            <v-icon  class="myIcon">fas fa-suitcase</v-icon>
-            <p class="myIcon"><v-icon >far fa-check-square</v-icon> Professionality</p>
+            <v-icon  class="myIcon" >fas fa-suitcase</v-icon>
+            <p class="myIcon"><v-icon class="checkSquareIcon">far fa-square</v-icon> Professionality</p>
         </div>
         <div class="firstIcon">
-            <v-icon  class="myIcon">far fa-edit</v-icon>
-            <p class="myIcon"><v-icon>far fa-check-square</v-icon> Customizable</p>
+            <v-icon  class="myIcon2">far fa-edit</v-icon>
+            <p class="myIcon2"><v-icon class="checkSquareIcon">far fa-check-square</v-icon> Customizable</p>
         </div>
         <div class="firstIcon">
-            <v-icon class="myIcon">fas fa-mobile-alt</v-icon>
-            <p class="myIcon"><v-icon>far fa-check-square</v-icon> Multi-Platform</p>
+            <v-icon class="myIcon3">fas fa-mobile-alt</v-icon>
+            <p class="myIcon3"><v-icon class="checkSquareIcon">far fa-check-square</v-icon> Multi-Platform</p>
         </div>
     </div>
 </template>
@@ -35,14 +35,49 @@ export default {
     .firstIcon {
         display: flex;
         flex-direction: column;
+        animation-fill-mode: ;
     }
+      @keyframes fade {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @keyframes heartbeat {
+    0% {
+      transform: scale(1.0);
+    }
+    100% {
+      transform: scale(1.5);
+    }
+  }
     .firstIcon > p {
         color: white;
         font-size: 20px;
     }
-    .myIcon {
+    .myIcon, .myIcon2, .myIcon3 {
         color: #fff;
         font-size: 5vh;
+        opacity: 0;
+
+    }
+    .myIcon {
+      animation: fade 5s forwards;
+
+    }
+    .checkSquareIcon {
+      animation: heartbeat 5s 3s 1;
+    }
+    .myIcon2 {
+      animation: fade 5s forwards;
+      animation-delay: 1s;
+    }
+    .myIcon3 {
+      animation: fade 5s forwards;
+      animation-delay: 2s;
     }
 
     @media screen and (max-width: 600px) {
