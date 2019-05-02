@@ -15,17 +15,17 @@ services:
     command: bash start.sh
     depends_on:
       - db
-      - znieczu-front
+#      - znieczu-front
     networks:
       - nginx_network
 
-  znieczu-front:
-    container_name: znieczu-front
-    build:
-      context: ./znieczu-front
-      dockerfile: Dockerfile
-    volumes:
-      - ./znieczu-front:/znieczu-front
+  #  znieczu-front:
+  #    container_name: znieczu-front
+  #    build:
+  #      context: ./znieczu-front
+  #      dockerfile: Dockerfile
+  #    volumes:
+  #      - ./znieczu-front:/znieczu-front
 
   nginx:
     image: nginx:1.13
@@ -37,7 +37,7 @@ services:
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
-      - znieczu-front
+#      - znieczu-front
       - znieczu-back
       - db
     networks:
