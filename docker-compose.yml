@@ -20,7 +20,9 @@ services:
       - nginx_network
 
   znieczu-front:
-    build: .
+    build:
+      context: .
+      dockerfile: znieczu-front/Dockerfile
     entrypoint: ./znieczu-front/entrypoint.sh
     volumes:
       - .:/znieczu-front
