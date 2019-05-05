@@ -15,5 +15,5 @@ RUN rm -rf node_modules/
 
 RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./znieczu-front/entrypoint.sh"]
 
