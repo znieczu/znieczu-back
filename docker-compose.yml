@@ -21,7 +21,7 @@ services:
 
   znieczu-front:
     build: .
-    entrypoint: /znieczu-front/entrypoint.sh
+    entrypoint: ./znieczu-front/entrypoint.sh
     volumes:
       - .:/znieczu-front
 
