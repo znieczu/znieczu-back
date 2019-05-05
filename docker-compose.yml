@@ -19,11 +19,11 @@ services:
     networks:
       - nginx_network
 
-    znieczu-front:
-      build: .
-      entrypoint: /znieczu-front/entrypoint.sh
-      volumes:
-        - .:/znieczu-front
+  znieczu-front:
+    build: .
+    entrypoint: /znieczu-front/entrypoint.sh
+    volumes:
+      - .:/znieczu-front
 
   nginx:
     image: nginx:1.13
