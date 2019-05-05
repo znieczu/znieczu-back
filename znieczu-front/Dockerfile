@@ -12,6 +12,8 @@ RUN mkdir /znieczu-front
 ADD . /znieczu-front/
 WORKDIR /znieczu-front
 RUN rm -rf node_modules/
-ENTRYPOINT ["znieczu-front/entrypoint.sh"]
 
 RUN ["chmod", "+x", "znieczu-front/entrypoint.sh"]
+
+ENTRYPOINT ["znieczu-front/entrypoint.sh"]
+

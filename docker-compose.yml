@@ -23,7 +23,7 @@ services:
     build:
       context: .
       dockerfile: znieczu-front/Dockerfile
-    entrypoint: entrypoint.sh
+    entrypoint: /znieczu-front/entrypoint.sh
     volumes:
       - .:/znieczu-front
 
