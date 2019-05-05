@@ -27,9 +27,7 @@ services:
 
   nginx:
     image: nginx:1.13
-    build:
-      context: .
-      dockerfile: ./config/nginx/Dockerfile
+    build: .
     ports:
       - 80:80
     volumes:
