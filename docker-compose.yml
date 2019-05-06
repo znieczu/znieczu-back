@@ -30,7 +30,7 @@ services:
     image: nginx:1.13
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: config/nginx/Dockerfile
     ports:
       - 80:80
     volumes:
