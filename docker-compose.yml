@@ -7,6 +7,10 @@ services:
       - "5432:5432"
     volumes:
       - db_znieczu:/var/lib/postgresql/data
+    environment:
+    - POSTGRES_USER=znieczu
+    - POSTGRES_PASSWORD=znieczu
+    - POSTGRES_DB=znieczu_db
 
   znieczu-back:
     container_name: znieczu-back
