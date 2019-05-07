@@ -8,9 +8,9 @@ services:
     volumes:
       - db_znieczu:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER=znieczu
-      POSTGRES_PASSWORD=znieczu
-      POSTGRES_DB=znieczu_db
+      POSTGRES_USER: znieczu
+      POSTGRES_PASSWORD: znieczu
+      POSTGRES_DB: znieczu_db
 
   znieczu-back:
     container_name: znieczu-back
