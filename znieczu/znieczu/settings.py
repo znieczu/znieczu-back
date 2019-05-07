@@ -85,10 +85,11 @@ WSGI_APPLICATION = 'znieczu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'bnc8jqeuq7eraihf14xb-postgresql.services.clever-cloud.com',
-        'NAME': 'bnc8jqeuq7eraihf14xb',
-        'USER': 'uw0eh2tyn7tbfreiprff',
-        'PASSWORD': 'kwc96IebKzby8mc7Lozj'
+        'HOST': '185.247.118.58',
+        'PORT': '5432',
+        'NAME': 'znieczu_db',
+        'USER': 'znieczu',
+        'PASSWORD': 'znieczu'
     }
 }
 
