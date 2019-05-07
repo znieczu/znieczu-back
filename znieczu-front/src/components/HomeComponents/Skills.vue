@@ -2,22 +2,32 @@
     <div class="skills">
         <div class="firstIcon">
             <v-icon  class="myIcon" >fas fa-suitcase</v-icon>
-            <p class="myIcon"><v-icon class="checkSquareIcon">far fa-square</v-icon> Professionality</p>
+          <transition name="fade">
+            <p class="myIcon" v-if="show">
+              <input class="checkIcon" type="checkbox"/> Professionality
+            </p>
+          </transition>
+
         </div>
         <div class="firstIcon">
             <v-icon  class="myIcon2">far fa-edit</v-icon>
-            <p class="myIcon2"><v-icon class="checkSquareIcon">far fa-check-square</v-icon> Customizable</p>
+            <p class="myIcon2"><input class="checkIcon" type="checkbox" /> Customizable</p>
         </div>
         <div class="firstIcon">
             <v-icon class="myIcon3">fas fa-mobile-alt</v-icon>
-            <p class="myIcon3"><v-icon class="checkSquareIcon">far fa-check-square</v-icon> Multi-Platform</p>
+            <p class="myIcon3"><input class="checkIcon" type="checkbox"/> Multi-Platform</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Skills'
+  name: 'Skills',
+  data: function () {
+    return {
+      show: true,
+    }
+  },
 }
 </script>
 
@@ -35,7 +45,6 @@ export default {
     .firstIcon {
         display: flex;
         flex-direction: column;
-        animation-fill-mode: ;
     }
       @keyframes fade {
         0% {
@@ -47,13 +56,25 @@ export default {
         }
       }
       @keyframes heartbeat {
-    0% {
-      transform: scale(1.0);
-    }
-    100% {
-      transform: scale(1.5);
-    }
-  }
+        0% {
+          transform: scale(1.0);
+
+        }
+        100% {
+          transform: scale(1.5);
+        }
+      }
+      @keyframes heartbeat-inverse {
+        0% {
+          transform: scale(1.5);
+          opacity: 0;
+
+        }
+        100% {
+          transform: scale(1.0);
+          opacity: 1;
+        }
+      }
     .firstIcon > p {
         color: white;
         font-size: 20px;
@@ -68,8 +89,16 @@ export default {
       animation: fade 5s forwards;
 
     }
-    .checkSquareIcon {
+    .firstIcon > p > .checkSquareIcon, .checkIcon {
+    }
+    .checkIcon {
       animation: heartbeat 5s 3s 1;
+      font-size: 150px;
+    }
+
+    .checkSquareIcon {
+      animation: heartbeat-inverse 5s 3s 1;
+      opacity: 0;
     }
     .myIcon2 {
       animation: fade 5s forwards;

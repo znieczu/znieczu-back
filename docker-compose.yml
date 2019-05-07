@@ -3,6 +3,10 @@ version: "3"
 services:
   db:
     image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_znieczu:/var/lib/postgresql/data
 
   znieczu-back:
     container_name: znieczu-back
@@ -57,3 +61,6 @@ services:
 networks:  # <-- and here
   nginx_network:
     driver: bridge
+
+volumes:
+  db_znieczu:
