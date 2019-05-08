@@ -29,8 +29,6 @@ services:
 
   znieczu-front:
     image: localhost:5000/znieczu-front
-    volumes:
-      - .:/znieczu-front
     networks:
       - frontend
 
