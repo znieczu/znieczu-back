@@ -1,26 +1,20 @@
 version: '3'
 services:
-    master:
-        image: eeacms/jenkins-master
+    jenkins:
+        container_name: jenkins
         ports:
-            - "8081:8080"
-        environment:
-            - JAVA_OPTS=-Xmx2048m
+            - '8081:8080'
+        image: localhost:5000/jenkins-master
         volumes:
-            - jenkins-master:/var/jenkins_home
-
-    worker:
-        image: eeacms/jenkins-slave
+          - jenkins_home:/var/jenkins_home
+    jenkins-slave:
+        container_name: jenkins-slave
         environment:
-            JAVA_OPTS: "-Xmx2048m"
-            JENKINS_MASTER: "http://master:8080"
-            JENKINS_NAME: "worker"
-            JENKINS_USER: "admin"
-            JENKINS_PASS: "admin"
-            JENKINS_RETRY: "20"
+            - 'JENKINS_URL=http://jenkins:8080'
+        image: localhost:5000/jenkins-slave
         volumes:
-            - jenkins-worker:/var/jenkins_home/worker
-
+            - /var/run/docker.sock:/var/run/docker.sock
+        depends_on:
+            - jenkins
 volumes:
-    jenkins-master:
-    jenkins-worker:
+  jenkins_home:
