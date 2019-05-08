@@ -12,7 +12,7 @@ services:
     worker:
         image: eeacms/jenkins-slave
         environment:
-            JAVA_OPTS: "-Xmx2048m"
+            JAVA_OPTS: Djenkins.install.runSetupWizard=false
             JENKINS_MASTER: "http://master:8080"
             JENKINS_NAME: "worker"
             JENKINS_USER: "admin"
