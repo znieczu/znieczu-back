@@ -19,6 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+		sh 'docker push localhost:5000/znieczu-front'
 		sh 'docker-compose -f docker-compose.yml up'
 		// sh 'docker container stop znieczu-back'
 		// sh 'docker container stop znieczuback_nginx_1'
