@@ -12,8 +12,8 @@ RUN mkdir /znieczu-front
 ADD . /znieczu-front/
 WORKDIR /znieczu-front
 
-RUN npm install
-RUN npm run build
-
 RUN rm -rf node_modules/
+RUN yarn
+RUN yarn build
+
 

@@ -1,32 +1,28 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build image') {
             steps {
-                echo 'Building..'
-		// sh 'cd znieczu-front'
-		// withNPM(npmrcConfig:'2c0ab2fd-f5b0-4f81-86dd-e0d0c8bc5e7f') {
-            	//	echo "Performing npm build..."
-            	//	sh 'npm run build'
-        	// }
+                // Print all the environment variables.
+                sh 'echo $GIT_BRANCH'
+                sh 'echo $GIT_COMMIT'
+                echo 'Building'
+                sh 'docker build -t znieczu-front:$BUILD_ID .'
+                sh 'docker tag znieczu-front:$BUILD_ID localhost:5000/znieczu-front:$BUILD_ID'
             }
         }
-        stage('Test') {
+        stage('Push image to registry') {
             steps {
-                echo 'Testing..'
-            }
+                sh 'docker push localhost:5000/serpe_front:$BUILD_ID'
+                sh 'docker tag znieczu-front:$BUILD_ID localhost:5000/znieczu-front:latest'
+                sh 'docker push localhost:5000/znieczu-front:latest'
         }
-        stage('Deploy') {
+        }
+         stage('Update service with new image') {
             steps {
-                echo 'Deploying....'
-		sh 'docker push localhost:5000/znieczu-front'
-		sh 'docker-compose -f docker-compose.yml up'
-		// sh 'docker container stop znieczu-back'
-		// sh 'docker container stop znieczuback_nginx_1'
-	        // sh 'docker container start znieczu-back'
-		// sh 'docker container start znieczuback_nginx_1'
-
-            }
+                sh 'docker service update --force --image localhost:5000/znieczu-front:$BUILD_ID --update-order "start-first" znieczu-front'
         }
+        }
+       
     }
 }
