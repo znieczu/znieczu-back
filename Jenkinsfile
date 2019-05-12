@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Push image to registry') {
             steps {
-                sh 'docker push localhost:5000/serpe_front:$BUILD_ID'
+                sh 'docker push localhost:5000/znieczu-front:$BUILD_ID'
                 sh 'docker tag znieczu-front:$BUILD_ID localhost:5000/znieczu-front:latest'
                 sh 'docker push localhost:5000/znieczu-front:latest'
         }
