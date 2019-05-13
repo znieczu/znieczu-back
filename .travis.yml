@@ -3,7 +3,5 @@ node_js:
   - "7"
 install:
   - cd znieczu-front && npm install
-[skip travis] test:
-
 build:
-  - npm run build
+  - npm build
