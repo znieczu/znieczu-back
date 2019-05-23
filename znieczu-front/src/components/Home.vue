@@ -87,6 +87,7 @@ export default {
         background-color: rgba(0,0,0,0.7);
         color: white;
         padding: 3vh 7vh 3vh 7vh;
+        border: 0;
     }
     .signUpButton {
         background-color: #3a5180;

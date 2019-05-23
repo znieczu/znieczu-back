@@ -1,7 +1,7 @@
 <template>
     <div class="contacts">
       <div class="info">
-        <h3>Contacts</h3>
+        <h1>Contacts</h1>
       </div>
 
       <div class="form">

@@ -5,6 +5,7 @@ import AboutUs from '@/components/AboutUs'
 import PageNotFound from '@/components/OtherComponents/PageNotFound'
 import Login from '@/components/Login'
 import Contacts from '@/components/Contacts'
+import Products from '@/components/Products'
 
 Vue.use(Router)
 
@@ -34,6 +35,12 @@ export default new Router({
       path: '/contacts',
       name: 'Contacts',
       component: Contacts
+    },
+    {
+      path: '/products',
+      name: 'Products',
+      component: Products
     }
+
   ]
 })

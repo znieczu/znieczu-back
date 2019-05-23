@@ -1,13 +1,13 @@
 <template>
     <div class="navbar">
-      <img id="logo" src="../assets/znieczu-logo.png" width="80" height="80">
+      <img id="logo" src="../assets/Logoscelto.png" width="80" height="80">
       <v-icon  class="myIcon" @click="showButtons = !showButtons">fab fa-elementor</v-icon>
 
       <div class="navbar-buttons" v-show="showButtons">
             <router-link to="/" tag="button">Home</router-link>
             <router-link to="/about-us" tag="button">About Us</router-link>
-            <img src="../assets/znieczu-logo.png" width="80" height="80">
-            <button>Our Products</button>
+            <img src="../assets/Logoscelto.png" width="120" height="80">
+            <router-link to="/products" tag="button">Products</router-link>
             <router-link to="/contacts" tag="button">Contacts</router-link>
       </div>
 
